@@ -2,7 +2,36 @@ os: linux
 dist: xenial
 
 language:
+  - cos: linux
+dist: xenial
+
+language:
   - c
+
+before_install:
+  - pip install --user cpp-coveralls
+
+addons:
+  sonarcloud:
+    organization: "Jidim-github"
+
+script:
+  - qmake
+  - make
+  - ./tests/tests
+
+after_success:
+  - coveralls --root . -E ".*external.*" -E ".*tests.*"
+  - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
+  - sonar-scanner
+
+cache:
+  directories:
+  - '$HOME/.m2/repository'
+  - '$HOME/.sonar/cache'
+
+notifications:
+  email: false
 
 before_install:
   - pip install --user cpp-coveralls
