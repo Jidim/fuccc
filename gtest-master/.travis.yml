@@ -1,8 +1,8 @@
 language:
-  - cpp
+  - c
 
 before_install:
-  - pip install --user cpp-coveralls
+  - pip install --user c-coveralls
 
 script:
   - qmake
