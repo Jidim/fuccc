@@ -1,0 +1,13 @@
+os: linux
+dist: xenial
+
+language:
+  - c
+
+script:
+  - qmake
+  - make
+  - ./tests/tests
+
+notifications:
+  email: false
