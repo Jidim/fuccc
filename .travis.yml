@@ -2,10 +2,6 @@ os: linux
 dist: xenial
 
 language:
-  - cos: linux
-dist: xenial
-
-language:
   - c
 
 before_install:
