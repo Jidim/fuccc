@@ -10,21 +10,22 @@ script:
   - make
   - ./tests/tests
 
-after_success:
-  - coveralls --root . -E ".*external.*" -E ".*tests.*"
-  - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
-  - sonar-scanner
-  
  addons:
  sonarcloud:
     organization: "jidim"
     token:
       secure: 56121a2831955e01608fd5f0d1704c2552069f3b
+      
+      
+after_success:
+  - coveralls --root . -E ".*external.*" -E ".*tests.*"
+  - build-wrapper-linux-x86-64 --out-dir bw-output make clean all
+  - sonar-scanner
   
 
-script:
+//*script:
   - build-wrapper-linux-x86-64 --out-dir bw-output <your clean build command>
-  - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
+  - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output*//
 
 notifications:
   email: fals
