@@ -23,7 +23,7 @@ HEADERS +=     tst_test1.h \
 
 SOURCES +=     \
     ../app/myfunc.c \
-    main.cpp
+    main.cpp \
     ../app/sqare.c
 
 INCLUDEPATH += ../app
