@@ -7,7 +7,7 @@ extern "C" {
 #include "square.h"
 }
 
-
+// Стандартные ситуации
 TEST(square, no_sol) {
     solution res = square(1, 2, 6);
     EXPECT_EQ(0, res.count);
@@ -22,6 +22,7 @@ TEST(square, two_sol) {
     EXPECT_EQ(-2, res.x1);
     EXPECT_EQ(-0.5, res.x2);
 }
+// Один корень
 TEST(square, test4_negative){
     solution res = square(0, 1, 1);
     EXPECT_EQ(-1, res.x1);
@@ -38,19 +39,10 @@ TEST(square, test6_negative){
     EXPECT_EQ(0, res.count);
 
 }
-TEST(square, test7_negative){
-    solution res = square(0, 0, 1);
-    EXPECT_EQ(0, res.count);
 
-}
 TEST(square, test8_negative){
     solution res = square(0, 1, 0);
     EXPECT_EQ(0, res.x1);
-
-}
-TEST(square, test9_negative){
-    solution res = square(0, 0, 0);
-    EXPECT_EQ(0, res.count);
 
 }
 TEST(square, test10_negative){
@@ -63,5 +55,16 @@ TEST(square, test11_negative){
     solution res = square(1, 0, 0);
     EXPECT_EQ(0, res.x1);
 
+
+}
+// Нет корней
+TEST(square, test7_negative){
+    solution res = square(0, 0, 1);
+    EXPECT_EQ(0, res.count);
+}
+// Бескоонечное количество корней
+TEST(square, test9_negative){
+    solution res = square(0, 0, 0);
+    EXPECT_EQ(0, res.count);
 
 }
