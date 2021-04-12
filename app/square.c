@@ -7,7 +7,10 @@ solution square(double a, double b, double c)
 
     if(a == 0){
         if(b == 0){
-            res.count = 3;
+            if(c == 0)
+                res.count = 3;
+            else
+                res.count = 0;
             return res;
         }
     else{

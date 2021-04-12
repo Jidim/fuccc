@@ -58,7 +58,7 @@ TEST(square, test9_negative){
     EXPECT_EQ(0, res.x1);
     EXPECT_EQ(1, res.count);
 }
-TEST(square, test100_negative){
+TEST(square, test10_negative){
     solution res = square(0, 0, 1);
     EXPECT_EQ(0, res.count);
 }
